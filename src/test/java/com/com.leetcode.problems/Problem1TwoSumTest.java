@@ -14,7 +14,6 @@ class Problem1TwoSumTest {
         int target1 = 9;
         int[] expected1 = {0, 1};
         assertArrayEquals(expected1, solution.twoSum(nums1, target1));
-
         // Test case 2
         int[] nums2 = {3, 2, 4};
         int target2 = 6;
@@ -27,7 +26,6 @@ class Problem1TwoSumTest {
         int[] expected3 = {0, 1};
         assertArrayEquals(expected3, solution.twoSum(nums3, target3));
     }
-
     @Test
     void testTwoSumNoSolution() {
         Problem1TwoSum solution = new Problem1TwoSum();
