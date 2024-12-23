@@ -88,4 +88,36 @@ class TestSolution {
         assertEquals('x', solution.nextGreatestLetter(letters3, 'z'));
     }
 
+    @Test
+    public void testCountNegatives() {
+        Solution solution = new Solution();
+        // Test case 1: Matrix with negatives in all rows
+        int[][] grid1 = {
+                {4, 3, 2, -1},
+                {3, 2, 1, -1},
+                {1, 1, -1, -2},
+                {-1, -1, -2, -3}
+        };
+        assertEquals(8, solution.countNegatives(grid1));
+
+        // Test case 2: Matrix with no negatives
+        int[][] grid2 = {
+                {3, 2},
+                {1, 0}
+        };
+        assertEquals(0, solution.countNegatives(grid2));
+
+        // Test case 3: Single row matrix
+        int[][] grid3 = {{3, -1, -2}};
+        assertEquals(2, solution.countNegatives(grid3));
+
+        // Test case 4: Single column matrix
+        int[][] grid4 = {{3}, {1}, {-1}, {-2}};
+        assertEquals(2, solution.countNegatives(grid4));
+
+        // Test case 5: Matrix with all negatives
+        int[][] grid5 = {{-1, -2}, {-3, -4}};
+        assertEquals(4, solution.countNegatives(grid5));
+    }
+
 }
