@@ -77,7 +77,6 @@ Programming is more fun when we learn together. Feel free to:
 - Try the problems yourself
 - Suggest new problems
 - Share your own solutions
-
-Remember: The goal is not just to solve problems, but to understand them deeply and grow as programmers.
+  Remember: The goal is not just to solve problems, but to understand them deeply and grow as programmers.
 
 Happy Coding! 🎯
