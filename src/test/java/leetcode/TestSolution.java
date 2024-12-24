@@ -2,12 +2,14 @@ package leetcode;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestSolution {
+    private static Solution solution = new Solution();
+
     @Test
     void testSearch() {
-        Solution solution = new Solution();
 
         // Test case 1: Target exists (from example)
         int[] nums1 = {-1, 0, 3, 5, 9, 12};
@@ -34,8 +36,6 @@ class TestSolution {
 
     @Test
     void testSearchInsert() {
-        Solution solution = new Solution();
-
         // Test case 1: Target exists in array
         int[] nums1 = {1, 3, 5, 6};
         assertEquals(2, solution.searchInsert(nums1, 5),
@@ -74,7 +74,6 @@ class TestSolution {
 
     @Test
     public void testNextGreatestLetter() {
-        Solution solution = new Solution();
         // Test case 1: target = 'a'
         char[] letters1 = {'c', 'f', 'j'};
         assertEquals('c', solution.nextGreatestLetter(letters1, 'a'));
@@ -89,8 +88,7 @@ class TestSolution {
     }
 
     @Test
-    public void testCountNegatives() {
-        Solution solution = new Solution();
+    void testCountNegatives() {
         // Test case 1: Matrix with negatives in all rows
         int[][] grid1 = {
                 {4, 3, 2, -1},
@@ -118,6 +116,36 @@ class TestSolution {
         // Test case 5: Matrix with all negatives
         int[][] grid5 = {{-1, -2}, {-3, -4}};
         assertEquals(4, solution.countNegatives(grid5));
+    }
+
+    @Test
+    void testSearchRange() {
+        // Test case 1: Target found multiple times
+        int[] nums1 = {5, 7, 7, 8, 8, 10};
+        assertArrayEquals(new int[]{3, 4}, solution.searchRange(nums1, 8));
+
+        // Test case 2: Target not found
+        int[] nums2 = {5, 7, 7, 8, 8, 10};
+        assertArrayEquals(new int[]{-1, -1}, solution.searchRange(nums2, 6));
+
+        // Test case 3: Empty array
+        int[] nums3 = {};
+        assertArrayEquals(new int[]{-1, -1}, solution.searchRange(nums3, 0));
+    }
+
+    @Test
+    public void testFindRightInterval() {
+        // Test case 1: Single interval
+        int[][] intervals1 = {{1, 2}};
+        assertArrayEquals(new int[]{-1}, solution.findRightInterval(intervals1));
+
+        // Test case 2: Three intervals with various right intervals
+        int[][] intervals2 = {{3, 4}, {2, 3}, {1, 2}};
+        assertArrayEquals(new int[]{-1, 0, 1}, solution.findRightInterval(intervals2));
+
+        // Test case 3: Three intervals with some having no right interval
+        int[][] intervals3 = {{1, 4}, {2, 3}, {3, 4}};
+        assertArrayEquals(new int[]{-1, 2, -1}, solution.findRightInterval(intervals3));
     }
 
 }
